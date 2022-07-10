@@ -19,7 +19,7 @@ const Detail = (props) => {
             setItem(res);
             window.scrollTo(0, 0);
          } catch (error) {
-          console.log(error.message)
+            console.log(error.message);
          }
       };
       getDetail();
@@ -30,14 +30,14 @@ const Detail = (props) => {
          {item && (
             <>
                <div
-                  className="banner ${props.className} relative h-[50vh] super-sm:h-[38vh] md:h-[50vh] w-full bg-cover bg-center bg-no-repeat py-[7rem] before:absolute before:top-0 before:left-0 before:block before:h-full before:w-full before:bg-black/40 after:absolute after:bottom-0 after:left-0 after:block after:h-full after:w-full after:bg-gradient-to-t after:from-body-bg after:to-black/0 lg:py-[10rem]"
+                  className="banner ${props.className} relative h-[50vh] w-full bg-cover bg-center bg-no-repeat py-[7rem] before:absolute before:top-0 before:left-0 before:block before:h-full before:w-full before:bg-black/40 after:absolute after:bottom-0 after:left-0 after:block after:h-full after:w-full after:bg-gradient-to-t after:from-body-bg after:to-black/0 md:h-[50vh] lg:py-[10rem] super-sm:h-[43vh]"
                   style={{
                      backgroundImage: `url(${apiConfig.originalImage(
                         item.backdrop_path || item.poster_path
                      )})`,
                   }}
                ></div>
-               <div className="movie-content container  relative mb-[3rem] mt-[-200px] flex w-[1260px] items-center">
+               <div className="movie-content container  relative mb-[3rem] mt-[-100px] flex w-[1260px] items-center lg:mt-[-200px]">
                   <div className="movie-content__poster hidden flex-1 md:block">
                      <div
                         className="movie-content__poster__img aspect-[3/4.3] w-full rounded-default bg-cover bg-center bg-no-repeat"
@@ -48,7 +48,7 @@ const Detail = (props) => {
                         }}
                      ></div>
                   </div>
-                  <div className="movie-content__info relative flex w-[100%] flex-col gap-[2rem] pl-0 md:w-[70%] md:pl-[2rem]">
+                  <div className="movie-content__info relative flex w-[100%] flex-col gap-[2rem] pl-0  md:pl-[2rem] lg:w-[70%]">
                      <h1 className="title text-[2.5rem] leading-[2rem] md:text-[4rem] md:leading-[4rem]">
                         {item?.title || item?.name}
                      </h1>
@@ -63,26 +63,28 @@ const Detail = (props) => {
                               </span>
                            ))}
                      </div>
-                     <p className="overview text-[14px] text-gray-100 lg:text-[16px] max-lines line-clamp-5">
+                     <p className="overview max-lines text-[14px] text-gray-100 line-clamp-5 lg:text-[16px]">
                         {item?.overview}
                      </p>
                      <div className="cast justify-self-end">
                         <div className="section__header">
-                           <h2 className="font-semibold mb-[10px]">Casts</h2>
+                           <h2 className="mb-[10px] font-semibold">Casts</h2>
                         </div>
                         <CastsList id={id} />
                      </div>
                   </div>
                </div>
-               <div className="container lg:max-w-[70%] mt-0 md:mt-[100px]">
+               <div className="container mt-0 md:mt-[100px] lg:max-w-[70%]">
                   <div className="section mb-[3rem]">
-                    <VideosLists id={id}/>
+                     <VideosLists id={id} />
                   </div>
                   <div className="section mb-[3rem] mt-[1rem]">
-                    <div className="section__header mb-[2rem]">
-                      <h2 className="min-w-max text-[16px] font-semibold md:text-[24px]">Similar</h2>
-                    </div>
-                    <MoviesList category={category} type='similar' id={id}/>
+                     <div className="section__header mb-[2rem]">
+                        <h2 className="min-w-max text-[16px] font-semibold md:text-[24px]">
+                           Similar
+                        </h2>
+                     </div>
+                     <MoviesList category={category} type="similar" id={id} />
                   </div>
                </div>
             </>
