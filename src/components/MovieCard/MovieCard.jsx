@@ -14,7 +14,7 @@ const MovieCard = (props) => {
    return (
       <Link to={link}>
          <div
-            className="movie-card group relative aspect-[3/4] w-full rounded-[10px] md:rounded-default !bg-cover !bg-top !bg-no-repeat before:absolute before:inset-0 before:block before:rounded-default before:bg-black before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-80"
+            className="movie-card group relative aspect-[3/4] w-full rounded-[10px] !bg-cover !bg-top !bg-no-repeat before:absolute before:inset-0 before:block before:rounded-[10px] before:bg-black before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-80 md:rounded-default before:md:rounded-default"
             style={{ background: `url(${bg})` }}
          >
             <Button className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-0 !rounded-full !py-[10px] !px-[12px] transition-all duration-300 group-hover:translate-x-[-50%] group-hover:translate-y-[-50%] group-hover:scale-100">
