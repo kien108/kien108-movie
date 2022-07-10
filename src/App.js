@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import "./assets/boxicons-2.0.7/css/boxicons.min.css";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import RoutesBody from "./config/RoutesBody";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   return (
+      <BrowserRouter>
+         <div className="mobile:mb-[1.8rem] overflow-y-auto scroll-smooth bg-body-bg font-mon font-[400] leading-6 text-txt-color">
+            <Header />
+            <RoutesBody />
+            <Footer />
+         </div>
+      </BrowserRouter>
+   );
 }
 
 export default App;

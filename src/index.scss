@@ -1,0 +1,127 @@
+$main-color: #ff0000;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+   a {
+      user-select: none;
+      &:hover {
+         color: $main-color;
+         transition: 0.3s ease;
+         transform: translateY(0);
+      }
+      &:active {
+         display: block;
+         transform: translateY(1px);
+      }
+   }
+   button,
+   input {
+      outline: 0;
+   }
+   li,
+   ul {
+      list-style-type: none;
+   }
+   img {
+      max-width: 100%;
+   }
+   iframe {
+      border: 0;
+   }
+}
+
+@layer components {
+   header.header--shrink {
+      @apply bg-body-bg py-0 shadow-sm md:py-[1rem];
+   }
+
+   li.active {
+      @apply text-main-color after:w-full;
+   }
+
+   .btn {
+      box-shadow: 0px 0px 7px 8px #ff00004d;
+      @apply relative
+         min-w-max cursor-pointer rounded-default
+         border-[4px] border-transparent bg-main-color px-[0.8rem] py-[0.5rem] font-mon text-[1.5rem] font-semibold text-[white] transition-all duration-300 md:px-[1.8rem] md:py-[0.8rem];
+
+      &:hover {
+         box-shadow: 0px 0px 7px 15px #ff00004d;
+         opacity: 0.9;
+      }
+
+      &-outline {
+         border: 3px solid white;
+         box-shadow: unset;
+         background: transparent;
+         &:hover {
+            box-shadow: unset;
+            background: white;
+            color: $main-color;
+         }
+      }
+      &--small {
+         border-width: 2px;
+         padding: 0.25rem 1.5rem;
+         font-size: 14px;
+      }
+   }
+
+   .modal {
+      @apply invisible fixed inset-0 z-50 flex items-center justify-center overflow-auto bg-black/40 opacity-0;
+
+      &.active {
+         @apply visible opacity-100;
+
+         .modal__content {
+            @apply translate-y-0 opacity-100;
+         }
+      }
+
+      &__content {
+         @apply relative w-[95%] translate-y-[-250px] rounded-default border border-gray-600/80 bg-body-bg p-8 opacity-0 transition-all duration-500 ease-in-out md:w-[80%];
+      }
+   }
+
+   .hero-slide__item {
+      &.active > &__content > &__content__poster {
+         img {
+            @apply scale-100;
+         }
+      }
+      &.active > &__content > &__content__info {
+         .btns,
+         .title,
+         .overview {
+            opacity: 1;
+            transform: translateY(0);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+         }
+         .title {
+            transition-delay: 0.3s;
+         }
+         .overview {
+            transition-delay: 0.6s;
+         }
+         .btns {
+            transition-delay: 0.9s;
+         }
+      }
+   }
+
+   .slide-appear {
+      @apply translate-y-[-100px] opacity-0 transition-all duration-500;
+   }
+
+   .max-lines {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; /* number of lines to show */
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+   }
+}
