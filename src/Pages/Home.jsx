@@ -60,7 +60,7 @@ const Home = () => {
                      <h2 className="min-w-max text-[16px] font-semibold md:text-[24px]">
                         Trending TV
                      </h2>
-                     <Link to={`/movie`}>
+                     <Link to={`/tv`}>
                         <OutlineButton className="btn--small">
                            View More
                         </OutlineButton>
@@ -79,7 +79,7 @@ const Home = () => {
                      <h2 className="min-w-max text-[16px] font-semibold md:text-[24px]">
                         Top Rated TV
                      </h2>
-                     <Link to={`/movie`}>
+                     <Link to={`/tv`}>
                         <OutlineButton className="btn--small">
                            View More
                         </OutlineButton>
