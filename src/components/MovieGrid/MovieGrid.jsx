@@ -116,6 +116,7 @@ const MovieSearch = (props) => {
    useEffect(() => {
       setKeyWord("");
    }, [props.category]);
+
    useEffect(() => {
       const enterEvent = (e) => {
          e.preventDefault();
@@ -137,7 +138,9 @@ const MovieSearch = (props) => {
             value={keyword}
             onChange={(e) => setKeyWord(e.target.value)}
          />
-         <Button className="btn--small hidden md:block">Search</Button>
+         <Button className="btn--small hidden md:block" onClick={goToSearch}>
+            Search
+         </Button>
       </div>
    );
 };
