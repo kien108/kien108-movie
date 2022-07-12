@@ -17,7 +17,7 @@ const MovieGrid = (props) => {
 
          try {
             if (keyword === undefined) {
-               let params = { page };
+               let params = {};
                switch (props.category) {
                   case category.movie:
                      res = await tmdbApi.getMoviesList(
@@ -31,12 +31,10 @@ const MovieGrid = (props) => {
                }
             } else {
                const params = {
-                  page,
                   query: keyword.trim(),
                };
                res = await tmdbApi.search(props.category, params);
             }
-            console.log(res);
             setItems(res.results);
             setTotalPage(res.total_pages);
          } catch (error) {
@@ -102,7 +100,6 @@ const MovieGrid = (props) => {
 };
 
 const MovieSearch = (props) => {
-   console.log("props.keyword", props.keyword);
    const navigate = useNavigate();
 
    const [keyword, setKeyWord] = useState("");

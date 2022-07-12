@@ -4,13 +4,20 @@ import { useState, useEffect, useRef } from "react";
 
 const Modal = (props) => {
    const [active, setActive] = useState(false);
+   const modalRef = useRef(null);
+
+   const closeModal = () => {
+      modalRef.current.classList.remove("active");
+      if (props.onClose) props.onClose();
+   };
 
    useEffect(() => {
       setActive(props.active);
    }, [props.active]);
    return (
       <div
-         onClick={props.onClose ? props.onClose : ""}
+         ref={modalRef}
+         onClick={closeModal}
          id={props.id}
          className={`modal ${
             active ? "active" : ""

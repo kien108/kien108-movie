@@ -131,10 +131,8 @@ const HeroSlideItem = (props) => {
 
 const TrailerModal = (props) => {
    const { item } = props;
-   const modal = document.querySelector(`#modal_${item.id}`);
    const iframeRef = useRef(null);
    const onClose = () => {
-      modal?.classList?.toggle("active");
       iframeRef.current.setAttribute("src", "");
    };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useRef } from "react";
 import { useEffect } from "react";
 const headerNav = [
@@ -15,7 +15,10 @@ const Header = () => {
    const { pathname } = useLocation();
    const headerRef = useRef(null);
 
-   const active = headerNav.findIndex((e) => e.path === pathname);
+   console.log(pathname.split("/"));
+   const active = headerNav.findIndex((e) =>
+      e.path.includes(pathname.split("/")[1])
+   );
 
    useEffect(() => {
       const shrinkHeader = () => {
