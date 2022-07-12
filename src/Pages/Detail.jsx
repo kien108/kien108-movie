@@ -78,14 +78,14 @@ const Detail = (props) => {
                   <div className="section mb-[3rem]">
                      <VideosLists id={id} />
                   </div>
-                  <div className="section mb-[3rem] mt-[1rem]">
-                     <div className="section__header mb-[2rem]">
-                        <h2 className="min-w-max text-[16px] font-semibold md:text-[24px]">
-                           Similar
-                        </h2>
-                     </div>
-                     <MoviesList category={category} type="similar" id={id} />
+               </div>
+               <div className="container mb-[3rem] w-[1260px]">
+                  <div className="section__header mb-[2rem]">
+                     <h2 className="min-w-max text-[16px] font-semibold md:text-[24px]">
+                        Similar
+                     </h2>
                   </div>
+                  <MoviesList category={category} type="similar" id={id} />
                </div>
             </>
          )}
